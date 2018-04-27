@@ -2,7 +2,7 @@
 # System authorization information
 auth --enableshadow --passalgo=sha512
 url --url="http://repos.internal.mxplay.com/7/base"
-ignoredisk --only-use=xvda
+ignoredisk --only-use=vda
 keyboard --vckeymap=us --xlayouts='us'
 lang en_US.UTF-8
 repo --name=updates --baseurl="http://repos.internal.mxplay.com/7/updates"
@@ -10,10 +10,10 @@ network --device eth0 --bootproto dhcp
 rootpw --iscrypted nope
 services --enabled="chronyd"
 timezone Asia/Kolkata --isUtc
-bootloader --location=mbr --boot-drive=xvda --append="console=tty0 console=ttyS0,115200"
-clearpart --all --drives=xvda --initlabel
-part /boot --fstype="ext2" --ondisk=xvda --size=500
-part pv.12 --fstype="lvmpv" --ondisk=xvda --size=24200
+bootloader --location=mbr --boot-drive=vda --append="console=tty0 console=ttyS0,115200"
+clearpart --all --drives=vda --initlabel
+part /boot --fstype="ext2" --ondisk=vda --size=500
+part pv.12 --fstype="lvmpv" --ondisk=vda --size=24200
 volgroup centos --pesize=4096 pv.12
 logvol /  --fstype="xfs" --size=24000 --name=root --vgname=centos
 firewall --disabled
